@@ -74,6 +74,6 @@ CREATE TRIGGER "buy"
 BEFORE INSERT ON "transactions"
 FOR EACH ROW
 BEGIN
-	UPDATE "products" SET "quantity" = "quantity" - 1 
+	UPDATE "products" SET "quantity" = "quantity" - NEW."quantity" 
 	WHERE "id" = NEW."product_id";
 END;
